@@ -190,6 +190,8 @@ class PostgresqlPreflightValidator < PreflightValidator
     # Note that we're looking for the same major, and using our minor as the minimum version
     # This provides compatibility with external databases that use < 9.6 before we make use
     # of any features available in > 9.2.
+
+puts "\n *** PREFLIGHT CHECKS ***\n" # so i can find this in the logs
 puts "\nPrivateChef['postgresql']['version'] = #{PrivateChef['postgresql']['version']}"
 puts   "cs_pg_attr['postgresql']['version']  = #{cs_pg_attr['postgresql']['version']}"
 puts "node['private_chef']['postgresql']['version'] = #{node['private_chef']['postgresql']['version']}\n"
