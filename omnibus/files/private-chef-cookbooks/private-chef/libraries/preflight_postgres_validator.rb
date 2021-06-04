@@ -194,6 +194,9 @@ class PostgresqlPreflightValidator < PreflightValidator
 puts "\n *** PREFLIGHT CHECKS ***\n" # so i can find this in the logs
 #puts "\nPrivateChef['postgresql']['version'] = #{PrivateChef['postgresql']['version']}"
 #puts "cs_pg_attr['postgresql']['version']  = #{cs_pg_attr['postgresql']['version']}" if (cs_pg_attr&.at 'postgresql')&.at 'version'
+puts "node = #{node}"
+puts "node[private_chef] = #{node['private_chef']}"
+puts "node[private_chef][postgresql] = #{node['private_chef']['postgresql']}"
 puts "node['private_chef']['postgresql']['version'] = #{node['private_chef']['postgresql']['version']}\n" # if ((node&.at 'private_chef')&.at 'postgresql')&.at 'version'
     unless major == 12 || ((major == REQUIRED_MAJOR) && (minor >= REQUIRED_MINOR))
       fail_with err_CSPG014_bad_postgres_version(v)
