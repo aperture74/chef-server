@@ -192,9 +192,9 @@ class PostgresqlPreflightValidator < PreflightValidator
     # of any features available in > 9.2.
 
 puts "\n *** PREFLIGHT CHECKS ***\n" # so i can find this in the logs
-puts "\nPrivateChef['postgresql']['version'] = #{PrivateChef['postgresql']['version']}"
-puts   "cs_pg_attr['postgresql']['version']  = #{cs_pg_attr['postgresql']['version']}"
-puts "node['private_chef']['postgresql']['version'] = #{node['private_chef']['postgresql']['version']}\n"
+#puts "\nPrivateChef['postgresql']['version'] = #{PrivateChef['postgresql']['version']}"
+puts "cs_pg_attr['postgresql']['version']  = #{cs_pg_attr['postgresql']['version']}" if cs_pg_attr['postgresql']['version']
+puts "node['private_chef']['postgresql']['version'] = #{node['private_chef']['postgresql']['version']}\n" if node['private_chef']['postgresql']['version']
     unless major == PrivateChef['postgresql']['version'] || ((major == REQUIRED_MAJOR) && (minor >= REQUIRED_MINOR))
       fail_with err_CSPG014_bad_postgres_version(v)
     end
