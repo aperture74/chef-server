@@ -1289,6 +1289,15 @@ This configuration file has the following settings for `opscode-erchef`:
 
     **New in Chef Infra Server 14.1**
 
+`opscode_erchef["allow_email_update_only_from_manage"]`
+
+:   When set to true will allow users to update their email only from the manage console.
+    When set to false users can change email from the Manage UI as well as knife.
+
+    Default value : `false`.
+
+    **New in Chef Infra Server 14.5**
+
 `opscode_erchef['listen']`
 
 :   The IP address on which the service is to listen. Default value:
