@@ -251,12 +251,6 @@ EOM
     # Override reconfigure to skip license checking
     def reconfigure(*args)
 
-      puts ::ChefServerCtl::Config::DOC_PATENT_MSG
-
-      LicenseAcceptance::Acceptor.check_and_persist!("infra-server", ChefServerCtl::VERSION.to_s)
-
-      ENV["CHEF_LICENSE"]="accept-no-persist"
-
       status = run_chef("#{base_path}/embedded/cookbooks/dna.json")
       if status.success?
         log "#{display_name} Reconfigured!"
